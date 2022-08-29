@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from "react";
-// import axios from "axios";
-import axios from "axios";
-import { BrowserRouter, Link, Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Blog from "./pages/blog/Blog";
-import Contact from "./pages/Contact";
-import Categories from "./pages/blog/Categories";
-import Post from "./pages/blog/Post";
-import BlogLayout from "./pages/blog/BlogLayout";
-import Page404 from "./pages/Page404";
-import Layihe from "./pages/Layihe";
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import About from './pages/About'
+import Blog from './pages/Blog'
+import Layout from './pages/Layout'
+import Post from './pages/Post'
 
-export default function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>React Router React Dersleri</h1>
-      <nav>
-        <Link to='/'>Home</Link>
-        <Link to='/blog'>Blog</Link>
-        <Link to='/contact'>Contact</Link>
-        {/* <Navigate to="/layihe"> */}
-      </nav>
+    <div>
       <Routes>
-        <Route path= "/" element={<Home/>}/>
-        <Route path ="/blog" element={<BlogLayout/>}>
-          <Route index={true} element={<Blog/>}/>
-          <Route path="categories" element={<Categories/>}/>
-          <Route path="post/:url/:id" element={<Post/>}/>
-          </Route>
-        <Route path="/contact" element={<Contact/>}/>
-        <Route path ="*" element={<Page404/>}/>
-       <Route path ="layihe" element={<Layihe/>}/>
+<Route path='/*' element={<Layout/>}>
+{/* <Route path='' element={<Layout/>}/> */}
+<Route path='blog' element={<Blog/>}/>
+<Route path='blog/:url' element={<Post/>}/>
+<Route path='about' element={<About/>}/>
+</Route>
+
+
+
       </Routes>
+
+
     </div>
-  );
+  )
 }
+
+export default App
