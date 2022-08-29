@@ -14,3 +14,26 @@ Nest and Dinamic route
           <Route path="categories"/>
           <Route path="post/:url"/>
           </Route>
+
+     <Routes>
+        <Route path= "/" element={<Home/>}/>
+        <Route path ="/blog" element={<BlogLayout/>}>
+          <Route index={true} element={<Blog/>}/>
+          <Route path="categories" element={<Categories/>}/>
+          <Route path="post/:url/:id" element={<Post/>}/>
+          </Route>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path ="*" element={<Page404/>}/>
+      </Routes>
+
+      
+const BlogLayout = () => {
+  return (
+    <>
+       <div>BlogLayout</div>
+    <Outlet/>
+    </>
+ 
+  )
+}
+          
