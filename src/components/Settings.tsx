@@ -2,7 +2,7 @@ import React from 'react'
 
 const Settings = () => {
   return (
-    <div className='settings'>Settings</div>
+    <h1 className='settings'>Welcome to settings page</h1>
   )
 }
 

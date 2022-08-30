@@ -1,7 +1,11 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Dasboard from './components/Dasboard'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Dasboard from './components/Dashboard'
 import InnerContent from './components/InnerContent'
+import Settings from './components/Settings'
+import Tab1 from './components/Tab1'
+import Tab2 from './components/Tab2'
+import Tab3 from './components/Tab3'
 import Tabs from './components/Tabs'
 
 const MainRoutes = () => {
@@ -9,9 +13,15 @@ const MainRoutes = () => {
     <div>
 <Routes>
     <Route path='/' element={<InnerContent/>}>
-    <Route path='/tabs' element={<Tabs/>}/>
-    <Route path='/dasboard' element={<Dasboard/>}/>
-    <Route path='/dasboard' element={<Dasboard/>}/>
+    <Route path='/' element={<Navigate replace to='dashboard'/>}/>
+    <Route path='dashboard' element={<Dasboard/>}/>
+    <Route path='tabs' element={<Tabs/>}>
+    <Route path='' element={<Navigate replace to='tab1'/>}/>
+    <Route path='tab1' element={<Tab1/>}/>
+    <Route path='tab2' element={<Tab2/>}/>
+    <Route path='tab3' element={<Tab3/>}/>
+      </Route>
+    <Route path='/settings' element={<Settings/>}/>
 
         </Route>
     
